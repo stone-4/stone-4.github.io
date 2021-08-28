@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Grid</title>
+
+	<style>
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#contenedor > * {
+			padding: 20px;			
+			border-radius: 5px;
+			box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+		}
+
+		#contenedor > *:not(#contenido){
+			font-size: 24px;
+		}
+
+		#contenedor {
+			width: 95%;
+			min-height: 100vh;
+			max-width: 1000px;
+			margin: 10px auto;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: 100px 70px 1fr 100px 100px;
+			grid-template-areas: "header    header    header"
+								 "nav       nav       nav"
+								 "contenido contenido sidebar"								 
+								 "widget-1  widget-2  sidebar"
+								 "footer    footer    footer";
+			grid-gap: 10px;
+		}		
+
+		#header {
+			grid-area: header;
+			color: white;
+			background: purple;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#menu-navegacion {
+			grid-area: nav;
+			background: gray;
+			color: white;
+			display: flex;
+			align-items: center;
+		}
+
+		#contenedor #menu-navegacion ul {
+			list-style: none;
+			display: flex;
+			justify-content: space-evenly;
+			flex: 1;	
+		}
+		
+		#sidebar {
+			grid-area: sidebar;
+			color: white;
+			background: orange;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#contenido {
+			grid-area: contenido;
+		}
+
+		#contenido p {
+			text-align: justify;
+		}
+
+		#widget-1 {
+			grid-area: widget-1;
+			background: skyblue;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#widget-2 {
+			grid-area: widget-2;
+			background: skyblue;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#footer {
+			grid-area: footer;
+			background: purple;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		@media screen and (max-width: 900px) {
+
+			 #contenedor {
+			  	grid-template-columns: repeat(2, 1fr);
+			  	grid-template-rows: 100px 70px 1fr 100px 100px 100px;
+				grid-template-areas: "header    header"
+									 "nav       nav"
+									 "contenido contenido"									 
+									 "sidebar   sidebar"
+									 "widget-1  widget-2"
+									 "footer    footer";
+			}			
+		}
+
+		@media screen and (max-width: 600px) {
+
+			 #contenedor {
+			 	grid-template-rows: 100px 70px 1fr 100px 100px 100px;
+				grid-template-areas: "header    header"
+									 "nav       nav"
+									 "contenido contenido"									 
+									 "sidebar   sidebar"
+									 "widget-1  widget-1"
+									 "widget-2  widget-2"
+									 "footer    footer";
+			}
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div id="contenedor">
+	<header id="header">
+		Nombre de la página
+	</header>
+	<nav id="menu-navegacion">
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+	</nav>
+	<aside id="sidebar">
+		Sidebar
+	</aside>
+	<main id="contenido">
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates quos ut dicta esse autem, rerum, repudiandae consectetur voluptas aliquam numquam est! Quaerat, harum eveniet doloremque neque vero id qui, repellendus?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p> <br />
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, esse id alias, quia cum sed. Necessitatibus non rerum autem cum ipsam atque ad, dolore ea sunt, impedit vel architecto, assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat quibusdam mollitia, itaque aliquam quos est velit voluptates error ab ullam porro debitis, modi iusto reprehenderit dolorem similique inventore neque. Numquam?</p>
+	</main>
+	<div id="widget-1">
+		Widget 1
+	</div>
+	<div id="widget-2">
+		Widget 2
+	</div>
+	<footer id="footer">
+		Contacto
+	</footer>
+</div>
+
+</body>
+</html>
